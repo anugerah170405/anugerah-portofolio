@@ -202,7 +202,6 @@ export function Hero() {
         </motion.div>
 
         {/* ── RIGHT COLUMN ── */}
-        {/* ── RIGHT COLUMN ── */}
         <div className="flex flex-col justify-between items-center lg:items-end h-full py-6 lg:py-16 lg:pl-10 order-3">
 
           {/* Tagline — desktop only */}
@@ -243,26 +242,6 @@ export function Hero() {
               variant="ghost" label="Get in Touch" icon={ArrowRight} size="md" className="lg:w-[200px]" />
 
           </motion.div>
-
-          {/* Stats row — mobile only
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.65 }}
-            className="flex lg:hidden items-center justify-center gap-8 pb-2 w-full"
-          >
-            {STATS.map((s) => (
-              <div key={s.label} className="flex flex-col items-center">
-                <span className="text-xl text-blue-500">{s.value}</span>
-                <span
-                  className="text-[9px] uppercase tracking-widest mt-0.5"
-                  style={textTertiary}
-                >
-                  {s.label}
-                </span>
-              </div>
-            ))}
-          </motion.div> */}
 
           {/* Scroll indicator — desktop only */}
           <motion.div className="hidden lg:flex flex-col items-center gap-2 self-end">
