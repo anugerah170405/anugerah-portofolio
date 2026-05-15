@@ -239,7 +239,7 @@ export function Hero() {
               variant="primary" label="View My Work" icon={ArrowUpRight} size="md" className="lg:w-[200px]" />
 
             <PrimaryButton
-              onClick={() => navigate("/work")}
+              onClick={() => navigate("/contact")}
               variant="ghost" label="Get in Touch" icon={ArrowRight} size="md" className="lg:w-[200px]" />
 
           </motion.div>
