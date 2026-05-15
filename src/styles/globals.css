@@ -1,0 +1,75 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* ── Blue accent (replaces rainbow) ── */
+.blue-accent {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6, #6366f1);
+}
+
+/* Legacy alias — keeps all existing .rainbow-border usages working */
+.rainbow-border {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6, #6366f1);
+}
+
+@keyframes float-y {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(var(--base-rotate, 0deg));
+  }
+
+  50% {
+    transform: translateY(var(--float-dist, -16px)) rotate(var(--hover-rotate, 0deg));
+  }
+}
+
+.float-card {
+  animation: float-y var(--float-dur, 6s) ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+}
+
+/* Theme-aware sheet background */
+:root {
+  --sheet-bg: rgba(252, 252, 253, 0.99);
+  --sheet-border: rgba(0, 0, 0, 0.08);
+  --sheet-card-bg: rgba(0, 0, 0, 0.03);
+  --sheet-card-border: rgba(0, 0, 0, 0.07);
+  --sheet-handle: rgba(0, 0, 0, 0.18);
+  --sheet-scrollbar: rgba(0, 0, 0, 0.12);
+  --blue-accent: #3b82f6;
+  --blue-accent-light: #60a5fa;
+  --blue-accent-deep: #2563eb;
+  --text-secondary-rgb: 113, 113, 130;
+  /* sama dengan #717182 */
+  --text-tertiary-rgb: 113, 113, 130;
+}
+
+.dark {
+  --sheet-bg: rgba(8, 8, 11, 0.99);
+  --sheet-border: rgba(255, 255, 255, 0.08);
+  --sheet-card-bg: rgba(255, 255, 255, 0.03);
+  --sheet-card-border: rgba(255, 255, 255, 0.07);
+  --sheet-handle: rgba(255, 255, 255, 0.18);
+  --sheet-scrollbar: rgba(255, 255, 255, 0.12);
+  --text-secondary-rgb: 168, 168, 168;
+  --text-tertiary-rgb: 168, 168, 168;
+}
+
+/* Scrollbar for bottom sheet */
+.sheet-scroll::-webkit-scrollbar {
+  width: 3px;
+}
+
+.sheet-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sheet-scroll::-webkit-scrollbar-thumb {
+  background: var(--sheet-scrollbar);
+  border-radius: 4px;
+}
