@@ -38,9 +38,6 @@ export function AwardsSection() {
                 </span>
               </div>
               <p className="text-sm text-foreground/48 leading-relaxed">{award.desc}</p>
-              <div
-                className="mt-5 h-px bg-blue-500/30 origin-left"
-              />
             </div>
           ))}
         </div>
