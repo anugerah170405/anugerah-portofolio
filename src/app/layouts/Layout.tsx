@@ -2,7 +2,6 @@ import { Outlet, useLocation } from "react-router";
 import { motion, AnimatePresence, type Variants } from "motion/react";
 import { ThemeProvider } from "../providers/ThemeProvider";
 import { Header } from "./Header";
-import { MotionProvider } from "../providers/MotionProvider";
 import { Footer } from "./Footer";
 
 
@@ -21,14 +20,12 @@ export function Layout() {
 
   return (
     <ThemeProvider>
-      <MotionProvider>
         <div
           className="min-h-screen relative overflow-hidden"
           style={{ background: "var(--background)" }}
         >
 
           <Header />
-          {/* Page transition — pakai pageVariants */}
           <AnimatePresence mode="wait">
             <motion.main
               key={location.pathname}
@@ -44,7 +41,6 @@ export function Layout() {
           <Footer/>
 
         </div>
-      </MotionProvider>
     </ThemeProvider>
   );
 }

@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { useNavigate } from "react-router";
 import { PrimaryButton } from "./PrimaryButton";
@@ -27,65 +26,41 @@ export function Contact() {
       <div className="relative z-10 max-w-4xl mx-auto text-center">
 
         {/* Label */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45 }}
+        <div
           className="flex items-center justify-center gap-3 mb-10"
         >
           <div className="h-px w-6 bg-blue-500/40" />
           <span className="text-xs uppercase tracking-widest" style={textTertiary}>Get in Touch</span>
           <div className="h-px w-6 bg-blue-500/40" />
-        </motion.div>
+        </div>
 
         {/* Headline */}
         <div className="overflow-hidden mb-2">
-          <motion.h2
-            initial={{ opacity: 0, y: 48 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[clamp(3rem,9vw,8rem)] leading-[0.92] tracking-tight"
-          >
+          <h2 className="text-[clamp(3rem,9vw,8rem)] leading-[0.92] tracking-tight">
             Let's Work
-          </motion.h2>
+          </h2>
         </div>
+
         <div className="overflow-hidden mb-10 pb-3">
-          <motion.h2
-            initial={{ opacity: 0, y: 48 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.75, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+          <h2
             className="text-[clamp(3rem,9vw,8rem)] leading-[0.92] tracking-tight"
             style={textSecondary}
           >
             Together.
-          </motion.h2>
+          </h2>
         </div>
 
         {/* Description */}
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.55, delay: 0.18 }}
-          className="text-base md:text-lg leading-relaxed max-w-lg mx-auto mb-10"
+        <p
+          className="text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-10"
         >
           Have a project in mind? I'd love to hear about it. Whether it's a product,
           a design system, or something from scratch — let's make it remarkable.
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.26 }}
-        >
-          <PrimaryButton
-            onClick={() => navigate("/contact")}
-            variant="primary" label="Get in Touch" icon={ArrowUpRight} size="md" className="lg:w-[200px]" />
-        </motion.div>
+        <PrimaryButton
+          onClick={() => navigate("/contact")}
+          variant="primary" label="Get in Touch" icon={ArrowUpRight} size="md" className="lg:w-[200px]" />
 
       </div>
     </section>

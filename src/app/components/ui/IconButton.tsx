@@ -1,22 +1,14 @@
-import { motion } from "framer-motion";
 import type { LucideIcon } from "lucide-react";
 
 type IconButtonSize = "sm" | "md" | "lg";
 
 interface IconButtonProps {
-    /** Lucide icon to render */
     icon: LucideIcon;
-    /** Click handler */
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-    /** Stop event propagation before calling onClick */
     stopPropagation?: boolean;
-    /** Disabled state */
     disabled?: boolean;
-    /** Size preset */
     size?: IconButtonSize;
-    /** aria-label for accessibility */
     label?: string;
-    /** Additional className */
     className?: string;
 }
 
@@ -43,22 +35,41 @@ export function IconButton({
     };
 
     return (
-        <motion.button
-            whileHover={disabled ? {} : { scale: 1.08 }}
-            whileTap={disabled ? {} : { scale: 0.93 }}
-            transition={{ duration: 0.15, ease: "easeOut" }}
+        <button
             onClick={handleClick}
             disabled={disabled}
             aria-label={label}
-            className={`cursor-pointer group flex-shrink-0 flex items-center justify-center border transition-all disabled:opacity-20 disabled:cursor-not-allowed ${btnSize} ${className}`}
+            className={`
+    cursor-pointer
+    group
+    flex-shrink-0
+    flex
+    items-center
+    justify-center
+    border
+    transition-all
+    duration-150
+    ease-out
+    active:scale-95
+    hover:scale-105
+    disabled:opacity-20
+    disabled:cursor-not-allowed
+    ${btnSize}
+    ${className}
+  `}
             style={{
                 background: "var(--sheet-card-bg)",
                 borderColor: "var(--sheet-card-border)",
             }}
         >
             <Icon
-                className={`${iconSize} transition-colors duration-150 group-hover:text-blue-500`}
+                className={`
+      ${iconSize}
+      transition-colors
+      duration-150
+      group-hover:text-blue-500
+    `}
             />
-        </motion.button>
+        </button>
     );
 }

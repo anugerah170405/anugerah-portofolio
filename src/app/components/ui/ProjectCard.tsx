@@ -38,9 +38,7 @@ export function ProjectCard({
       >
         {/* Thumbnail */}
         <div className="aspect-[16/10] overflow-hidden relative bg-foreground/5 flex-shrink-0">
-          <motion.div
-            whileHover={{ scale: 1.04 }}
-            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+          <div
             className="w-full h-full"
           >
             <ImageWithFallback
@@ -48,14 +46,14 @@ export function ProjectCard({
               alt={title}
               className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
             />
-          </motion.div>
+          </div>
 
           {/* Hover overlay */}
           <motion.div
             initial={{ opacity: 0 }}
             whileHover={{ opacity: 1 }}
             transition={{ duration: 0.2 }}
-            className="absolute inset-0 flex items-center justify-center"
+            className="absolute inset-0 flex items-center justify-center hover:opacity-1"
             style={{ background: "rgba(0,0,0,0.3)" }}
           >
             <div
