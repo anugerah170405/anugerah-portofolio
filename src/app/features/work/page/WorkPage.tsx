@@ -1,12 +1,10 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
 import { Search, X as XIcon } from "lucide-react";
-import { ProjectCard } from "../components/ProjectCard";
-import { CaseStudyModal} from "../components/modal/CaseStudyModal";
+import { ProjectCard } from "../../../components/ui/ProjectCard";
+import { CaseStudyModal} from "../../../components/modal/CaseStudyModal";
 import { PROJECTS } from "@/data/ProjectData";           // ← ganti dari ProjectModel
-import { Contact } from "../components/Contact";
-import { Footer } from "../components/Footer";
-import { SectionHeading } from "../components/SectionHeader";
+import { Contact } from "../../../components/ui/Contact";
+import { SectionHeading } from "../../../components/ui/SectionHeader";
 
 const ALL_CATEGORIES = [
   "All",
@@ -48,25 +46,18 @@ export function WorkPage() {
       <div className="min-h-screen px-6 pt-32 pb-24">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+          <div
             className="mb-10"
           >
-
             <SectionHeading
               label="Portofolio"
               title="All Projects"
               description="A complete collection of design and development case studies."
             />
-          </motion.div>
+          </div>
 
           {/* Search bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.08, duration: 0.5 }}
+          <div
             className="relative mb-6"
           >
             <div
@@ -84,28 +75,19 @@ export function WorkPage() {
                 placeholder="Search by title, category, or tag…"
                 className="flex-1 bg-transparent text-sm text-foreground/70 placeholder:text-foreground/28 outline-none"
               />
-              <AnimatePresence>
                 {searchQuery && (
-                  <motion.button
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    transition={{ duration: 0.15 }}
+                  <button
                     onClick={() => { setSearchQuery(""); setSelectedProject(null); }}
-                    className="w-5 h-5 rounded-md flex items-center justify-center text-foreground/30 hover:text-foreground/60 transition-colors flex-shrink-0"
+                    className="cursor-pointer w-5 h-5 rounded-md flex items-center justify-center text-foreground/30 hover:text-foreground/60 transition-colors flex-shrink-0"
                   >
                     <XIcon className="w-3.5 h-3.5" />
-                  </motion.button>
+                  </button>
                 )}
-              </AnimatePresence>
             </div>
-          </motion.div>
+          </div>
 
           {/* Filter Bar */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.12, duration: 0.5 }}
+          <div
             className="flex flex-wrap items-center gap-2 mb-12"
           >
             {ALL_CATEGORIES.map((cat) => {
@@ -130,17 +112,12 @@ export function WorkPage() {
             <span className="ml-auto text-xs text-foreground/28 uppercase tracking-widest">
               {filteredWithIndex.length} project{filteredWithIndex.length !== 1 ? "s" : ""}
             </span>
-          </motion.div>
+          </div>
 
           {/* Grid */}
-          <AnimatePresence mode="wait">
             {filteredWithIndex.length > 0 ? (
-              <motion.div
+              <div
                 key={activeFilter + searchQuery}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.25 }}
                 className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch"
               >
                 {filteredWithIndex.map(({ project }, index) => (
@@ -152,14 +129,10 @@ export function WorkPage() {
                     onClick={() => setSelectedProject(index)}
                   />
                 ))}
-              </motion.div>
+              </div>
             ) : (
-              <motion.div
+              <div
                 key="empty"
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
                 className="flex flex-col items-center justify-center py-24 gap-4"
               >
                 <div
@@ -175,14 +148,12 @@ export function WorkPage() {
                 >
                   Clear filters
                 </button>
-              </motion.div>
+              </div>
             )}
-          </AnimatePresence>
         </div>
       </div>
 
       <Contact />
-      <Footer />
 
       {selectedProject !== null && currentProject && (
         <CaseStudyModal

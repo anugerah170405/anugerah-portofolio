@@ -1,8 +1,8 @@
 import { motion } from "motion/react";
-import { ImageWithFallback } from "../../utils/ImageWithFallback";
-import { SectionHeading } from "./SectionHeader";
 import { LANDSCAPE } from "@/data/PortraitData";
 import { CV_DATA } from "@/data/CVData";
+import { SectionHeading } from "@/app/components/ui/SectionHeader";
+import { ImageWithFallback } from "@/utils/ImageWithFallback";
 
 
 const tools = [
@@ -12,7 +12,7 @@ const tools = [
   { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
 ];
 
-export function BioSkills() {
+export function BioSection() {
   return (
     <section id="about" className="px-6 py-16">
       <div className="max-w-7xl mx-auto">

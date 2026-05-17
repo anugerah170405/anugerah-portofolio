@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import { useNavigate } from "react-router";
-import { PrimaryButton } from "./ui/PrimaryButton";
+import { PrimaryButton } from "./PrimaryButton";
 
 export function Contact() {
   const navigate = useNavigate();

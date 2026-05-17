@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
-import { ImageWithFallback } from "../../utils/ImageWithFallback";
+import { ImageWithFallback } from "../../../utils/ImageWithFallback";
 
 interface ProjectCardProps {
   title: string;

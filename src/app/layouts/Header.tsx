@@ -1,8 +1,8 @@
 import { motion, AnimatePresence } from "motion/react";
-import { ThemeToggle } from "./ThemeToggle";
+import { ThemeToggle } from "../components/ui/ThemeToggle";
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router";
-import { Logo } from "./ui/Logo";
+import { Logo } from "../components/ui/Logo";
 import { SOCIALS } from "@/data/ContactData";
 
 const NAV_ITEMS = [

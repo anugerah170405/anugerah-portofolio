@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import { Logo } from "./ui/Logo";
+import { Logo } from "../components/ui/Logo";
 import { SOCIALS } from "@/data/ContactData";
 
 const NAV_LINKS = [

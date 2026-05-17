@@ -1,20 +1,19 @@
-import { useState } from "react";
-import { createPortal } from "react-dom";
-import { motion, AnimatePresence } from "motion/react";
-import { X, ZoomIn, ChevronLeft, ChevronRight } from "lucide-react";
-import { ImageWithFallback } from "../../utils/ImageWithFallback";
-import { galleryItems } from "@/data/GalleryData";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useModalDialog } from "@/hooks/UseModalDialog";
-import { IconButton } from "./ui/IconButton";
+import { motion, AnimatePresence } from "motion/react";
+import { createPortal } from "react-dom";
+import { galleryItems } from "@/data/GalleryData";
+import { IconButton } from "../ui/IconButton";
+import { ImageWithFallback } from "@/utils/ImageWithFallback";
 
-interface LightboxProps {
+interface LightBoxModalProps {
   index: number | null;
   onClose: () => void;
   onPrev: () => void;
   onNext: () => void;
 }
 
-function Lightbox({ index, onClose, onPrev, onNext }: LightboxProps) {
+export function LightBoxModal({ index, onClose, onPrev, onNext }: LightBoxModalProps) {
   const item = index !== null ? galleryItems[index] : null;
   const hasPrev = index !== null && index > 0;
   const hasNext = index !== null && index < galleryItems.length - 1;
@@ -147,92 +146,5 @@ function Lightbox({ index, onClose, onPrev, onNext }: LightboxProps) {
       )}
     </AnimatePresence>,
     document.body
-  );
-}
-
-export function Gallery() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
-  const handlePrev = () => setActiveIndex((i) => (i !== null && i > 0 ? i - 1 : i));
-  const handleNext = () =>
-    setActiveIndex((i) => (i !== null && i < galleryItems.length - 1 ? i + 1 : i));
-
-  return (
-    <section id="gallery" className="px-6 py-12">
-      <div className="max-w-7xl mx-auto">
-        {/* Bento grid */}
-        <div
-          className="grid gap-3"
-          style={{ gridTemplateColumns: "repeat(3, 1fr)", gridAutoFlow: "dense" }}
-        >
-          {galleryItems.map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, scale: 0.97 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.45, delay: i * 0.05 }}
-              whileHover={{ scale: 1.015 }}
-              onClick={() => setActiveIndex(i)}
-              className="relative rounded-xl overflow-hidden cursor-pointer group border border-foreground/8 hover:border-foreground/16 transition-colors"
-              style={{
-                gridColumn: item.wide ? "span 2" : "span 1",
-                height: "210px",
-              }}
-            >
-              <ImageWithFallback
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-
-              {/* Gradient overlay */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.02) 50%, transparent 100%)",
-                }}
-              />
-
-              {/* Info + zoom */}
-              <div className="absolute inset-0 flex flex-col justify-between p-4">
-                <div className="flex justify-end">
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.85 }}
-                    whileHover={{ opacity: 1, scale: 1 }}
-                    className="w-7 h-7 rounded-md flex items-center justify-center border border-white/20"
-                    style={{ background: "rgba(255,255,255,0.10)" }}
-                  >
-                    <ZoomIn className="w-3 h-3 text-white/80" />
-                  </motion.div>
-                </div>
-                <div>
-                  <p className="text-[9px] text-white/45 uppercase tracking-widest mb-0.5">
-                    {item.tag}
-                  </p>
-                  <p className="text-sm text-white/85">{item.title}</p>
-                </div>
-              </div>
-
-              {/* Rainbow bottom accent */}
-              <motion.div
-                initial={{ scaleX: 0 }}
-                whileHover={{ scaleX: 1 }}
-                transition={{ duration: 0.35 }}
-                className="absolute inset-x-0 bottom-0 h-0.5 rainbow-border origin-left"
-              />
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      <Lightbox
-        index={activeIndex}
-        onClose={() => setActiveIndex(null)}
-        onPrev={handlePrev}
-        onNext={handleNext}
-      />
-    </section>
   );
 }

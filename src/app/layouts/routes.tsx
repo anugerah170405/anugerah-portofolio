@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router";
-import { Layout } from "./app/components/Layout";
-import { HomePage } from "./app/pages/HomePage";
-import { WorkPage } from "./app/pages/WorkPage";
-import { AboutPage } from "./app/pages/AboutPage";
-import { GalleryPage } from "./app/pages/GalleryPage";
-import { ContactPage } from "./app/pages/ContactPage";
-import { NotFoundPage } from "./app/pages/NotFoundPage";
-import { ErrorPage } from "./app/pages/ErrorPage";
+import { Layout } from "./Layout";
+import { HomePage } from "../features/home/page/HomePage";
+import { WorkPage } from "../features/work/page/WorkPage";
+import { AboutPage } from "../features/about/page/AboutPage";
+import { GalleryPage } from "../features/gallery/page/GalleryPage";
+import { ContactPage } from "../features/contact/pages/ContactPage";
+import { NotFoundPage } from "../features/NotFoundPage";
+import { ErrorPage } from "../features/ErrorPage";
 
 export const router = createBrowserRouter([
   {
