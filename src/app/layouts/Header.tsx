@@ -180,7 +180,7 @@ export function Header() {
                         ease: [0.22, 1, 0.36, 1],
                       }}
                       onClick={() => go(item.path)}
-                      className="group flex items-center gap-5 py-3 w-full text-left cursor-pointer outline-none border-b border-foreground/5 last:border-0 font-normal"
+                      className="group flex items-center gap-5 py-3 w-full text-left cursor-pointer outline-none border-b border-foreground/5 last:border-0"
                     >
                       <div className="w-5 flex items-center justify-center flex-shrink-0">
                         <div

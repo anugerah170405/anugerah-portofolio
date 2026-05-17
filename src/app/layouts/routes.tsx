@@ -14,12 +14,12 @@ export const router = createBrowserRouter([
     Component: Layout,
     ErrorBoundary: ErrorPage,
     children: [
-      { index: true, Component: HomePage },
-      { path: "work", Component: WorkPage },
-      { path: "about", Component: AboutPage },
-      { path: "gallery", Component: GalleryPage },
-      { path: "contact", Component: ContactPage },
-      { path: "*", Component: NotFoundPage },
+      { index: true, Component: HomePage, id: "home" },
+      { path: "work", Component: WorkPage, id: "work" },
+      { path: "about", Component: AboutPage, id: "about" },
+      { path: "gallery", Component: GalleryPage, id: "gallery" },
+      { path: "contact", Component: ContactPage, id: "contact" },
+      { path: "*", Component: NotFoundPage, id: "404" },
     ],
   },
 ]);

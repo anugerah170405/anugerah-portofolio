@@ -52,7 +52,7 @@ export function Contact() {
 
         {/* Description */}
         <p
-          className="text-base md:text-lg leading-relaxed max-w-xl mx-auto mb-10"
+          className="text-base md:text-lg leading-relaxed max-w-md mx-auto mb-10"
         >
           Have a project in mind? I'd love to hear about it. Whether it's a product,
           a design system, or something from scratch — let's make it remarkable.
