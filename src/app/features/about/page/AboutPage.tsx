@@ -91,13 +91,6 @@ export function AboutPage() {
               style={{ width: "clamp(220px, 30vw, 360px)" }}
             >
               <div
-                className="absolute -inset-6 rounded-full pointer-events-none"
-                style={{
-                  background: "radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%)",
-                  filter: "blur(24px)",
-                }}
-              />
-              <div
                 className="relative overflow-hidden rounded-2xl border border-foreground/10 shadow-2xl"
                 style={{ aspectRatio: "3/4" }}
               >
@@ -105,10 +98,6 @@ export function AboutPage() {
                   src={PORTRAIT}
                   alt="Anugerah Gari"
                   className="w-full h-full object-cover object-top"
-                />
-                <div
-                  className="absolute top-0 right-0 w-24 h-24 pointer-events-none"
-                  style={{ background: "radial-gradient(circle at top right, rgba(59,130,246,0.2) 0%, transparent 65%)" }}
                 />
               </div>
             </div>

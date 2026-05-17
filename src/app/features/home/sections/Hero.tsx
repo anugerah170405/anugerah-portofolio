@@ -4,6 +4,7 @@ import { ImageWithFallback } from "../../../../utils/ImageWithFallback";
 import { PrimaryButton } from "../../../components/ui/PrimaryButton";
 import { STATS } from "../../../../data/StatsData";
 import { PORTRAIT } from "../../../../data/PortraitData";
+import { motion } from "motion/react";
 
 
 const textSecondary = { color: "rgba(var(--text-secondary-rgb), 0.75)" };
@@ -63,7 +64,7 @@ export function Hero() {
           <div className="my-auto py-6 lg:py-0">
             <h1
               className="text-[clamp(2.8rem,6vw,5rem)] leading-[1.04] tracking-tight text-center lg:text-left"
-             
+
             >
               <span className="flex flex-wrap justify-center lg:justify-start xl:flex-col gap-x-4 gap-y-0">
                 <span>Crafting</span>
@@ -93,19 +94,10 @@ export function Hero() {
 
         {/* ── CENTER — PHOTO ── */}
         <div
-          
+
           className="relative flex-shrink-0 order-1 lg:order-2 mx-auto my-auto"
           style={{ width: "clamp(180px, 50vw, 380px)" }}
         >
-          <div
-            className="absolute -inset-6 rounded-full pointer-events-none"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(59,130,246,0.14) 0%, transparent 70%)",
-              filter: "blur(30px)",
-            }}
-          />
-
           {/* Photo frame */}
           <div
             className="relative bottom-4 overflow-hidden rounded-2xl border border-foreground/10 shadow-2xl"
@@ -137,13 +129,6 @@ export function Hero() {
             </div>
 
             {/* Blue corner accent */}
-            <div
-              className="absolute top-0 right-0 w-24 h-24 pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(circle at top right, rgba(59,130,246,0.22) 0%, transparent 65%)",
-              }}
-            />
           </div>
 
           {/* Floating "Based in Indonesia" tag */}
@@ -189,7 +174,7 @@ export function Hero() {
 
           {/* Tagline — desktop only */}
           <div
-          
+
             className="hidden lg:block"
           >
             <p
@@ -209,7 +194,7 @@ export function Hero() {
 
           {/* CTAs */}
           <div
-           
+
             className="my-auto py-6 lg:py-0 flex flex-col gap-2.5 items-stretch lg:items-end w-full lg:w-auto"
           >
             <PrimaryButton
@@ -228,8 +213,16 @@ export function Hero() {
               className="w-5 h-8 rounded-full border flex items-start justify-center pt-1.5"
               style={{ borderColor: "rgba(var(--text-tertiary-rgb), 0.4)" }}
             >
-              <div
-               
+              <motion.div
+                animate={{y:[0,5,0], opacity:[0.4, 1, 0.4]}}
+                transition={
+                  {
+                    duration: 1.6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    repeatDelay: 0.4,
+                  }
+                }
                 className="w-0.5 h-1.5 rounded-full"
                 style={{ background: "rgba(var(--text-tertiary-rgb), 0.4)" }}
               />

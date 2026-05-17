@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import { galleryItems } from "@/data/GalleryData";
 import { IconButton } from "../ui/IconButton";
 import { ImageWithFallback } from "@/utils/ImageWithFallback";
+import { BackDrop } from "../ui/BackDrop";
 
 interface LightBoxModalProps {
   index: number | null;
@@ -32,16 +33,7 @@ export function LightBoxModal({ index, onClose, onPrev, onNext }: LightBoxModalP
       {item && (
         <>
           {/* Backdrop */}
-          <motion.div
-            key="lb-backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.28 }}
-            className="fixed inset-0 z-50"
-            style={{ backdropFilter: "blur(10px) saturate(160%)", background: "color-mix(in srgb, var(--background) 82%, transparent)" }}
-            onClick={onClose}
-          />
+          <BackDrop key="backdrop-lightbox" onClose={onClose} />
 
           {/* Panel */}
           <motion.div
@@ -99,7 +91,6 @@ export function LightBoxModal({ index, onClose, onPrev, onNext }: LightBoxModalP
                   onClick={onPrev}
                   stopPropagation
                   disabled={!hasPrev}
-                  label="Next"
                 />
 
                 {/* Next */}
@@ -108,7 +99,6 @@ export function LightBoxModal({ index, onClose, onPrev, onNext }: LightBoxModalP
                   onClick={onNext}
                   stopPropagation
                   disabled={!hasNext}
-                  label="Next"
                 />
 
                 {/* Close */}
@@ -116,7 +106,6 @@ export function LightBoxModal({ index, onClose, onPrev, onNext }: LightBoxModalP
                   icon={X}
                   onClick={onClose}
                   stopPropagation
-                  label="Next"
                 />
               </div>
 

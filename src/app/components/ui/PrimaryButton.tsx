@@ -4,21 +4,13 @@ type ButtonVariant = "primary" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface PrimaryButtonProps {
-  /** Button label */
   label: string;
-  /** Click handler */
   onClick?: () => void;
-  /** Visual variant */
   variant?: ButtonVariant;
-  /** Size preset */
   size?: ButtonSize;
-  /** Icon displayed at the end of the button */
   icon?: LucideIcon;
-  /** Fixed width (e.g. "200px"). Defaults to auto. */
   width?: string;
-  /** Disabled state */
   disabled?: boolean;
-  /** Additional Tailwind classes */
   className?: string;
 }
 

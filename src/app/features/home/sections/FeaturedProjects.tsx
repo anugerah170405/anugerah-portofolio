@@ -17,7 +17,18 @@ const FEATURED = FEATURED_TITLES
 
 export function FeaturedProjects() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+
   const navigate = useNavigate();
+
+  const handleOpen = (index: number) => {
+    setSelectedProject(index);
+    setModalOpen(true);
+  };
+
+  const handleClose = () => {
+    setModalOpen(false);
+  };
 
   const handlePrev = () =>
     setSelectedProject((prev) => (prev !== null && prev > 0 ? prev - 1 : prev));
@@ -54,7 +65,7 @@ export function FeaturedProjects() {
                 {...project}
                 index={index}
                 delay={index * 0.07}
-                onClick={() => setSelectedProject(index)}
+                onClick={() => handleOpen(index)}
               />
             ))}
           </div>
@@ -63,8 +74,8 @@ export function FeaturedProjects() {
 
       {selectedProject !== null && (
         <CaseStudyModal
-          open
-          onClose={() => setSelectedProject(null)}
+          open={modalOpen}
+          onClose={handleClose}
           project={FEATURED[selectedProject]}
           onPrev={handlePrev}
           onNext={handleNext}

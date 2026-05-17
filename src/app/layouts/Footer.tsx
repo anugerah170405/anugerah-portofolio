@@ -40,7 +40,7 @@ export function Footer() {
               <button
                 key={link.path}
                 onClick={() => navigate(link.path)}
-                className="text-sm hover:text-blue-500 transition-colors text-left cursor-pointer"
+                className="font-normal text-sm hover:text-blue-500 transition-colors text-left cursor-pointer"
               >
                 {link.label}
               </button>

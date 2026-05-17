@@ -13,15 +13,14 @@ interface IconButtonProps {
 }
 
 const sizeMap: Record<IconButtonSize, { button: string; icon: string }> = {
-    sm: { button: "w-6 h-6 rounded", icon: "w-3 h-3" },
-    md: { button: "w-8 h-8 rounded-md", icon: "w-4 h-4" },
-    lg: { button: "w-10 h-10 rounded-lg", icon: "w-5 h-5" },
+    sm: { button: "p-1 rounded", icon: "w-3 h-3" },
+    md: { button: "p-1.5 rounded-md", icon: "w-4 h-4" },
+    lg: { button: "p-2 rounded-lg", icon: "w-5 h-5" },
 };
 
 export function IconButton({
     icon: Icon,
     onClick,
-    stopPropagation = false,
     disabled = false,
     size = "md",
     label,
@@ -30,7 +29,6 @@ export function IconButton({
     const { button: btnSize, icon: iconSize } = sizeMap[size];
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-        if (stopPropagation) e.stopPropagation();
         onClick?.(e);
     };
 
@@ -46,6 +44,7 @@ export function IconButton({
     flex
     items-center
     justify-center
+    gap-1
     border
     transition-all
     duration-150
@@ -70,6 +69,7 @@ export function IconButton({
       group-hover:text-blue-500
     `}
             />
+            {label && <p className="font-normal text-xs group-hover:text-blue-500">{label}</p>}
         </button>
     );
 }

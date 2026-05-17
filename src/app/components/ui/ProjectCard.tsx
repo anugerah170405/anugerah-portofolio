@@ -49,11 +49,8 @@ export function ProjectCard({
           </div>
 
           {/* Hover overlay */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileHover={{ opacity: 1 }}
-            transition={{ duration: 0.2 }}
-            className="absolute inset-0 flex items-center justify-center hover:opacity-1"
+          <div
+            className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200"
             style={{ background: "rgba(0,0,0,0.3)" }}
           >
             <div
@@ -62,7 +59,7 @@ export function ProjectCard({
             >
               <ArrowUpRight className="w-4 h-4 text-white" />
             </div>
-          </motion.div>
+          </div>
 
           {/* Category badge */}
           <div className="absolute top-3 left-3">
@@ -87,7 +84,7 @@ export function ProjectCard({
             <ArrowUpRight className="w-4 h-4 group-hover:text-blue-500 transition-colors mt-0.5 flex-shrink-0" />
           </div>
           <p className="text-sm leading-relaxed mb-4 flex-1 line-clamp-1"
-          style={{ color: "rgba(var(--text-secondary-rgb), 0.75)" }}>
+            style={{ color: "rgba(var(--text-secondary-rgb), 0.75)" }}>
             {description}
           </p>
 
@@ -105,13 +102,6 @@ export function ProjectCard({
           </div>
         </div>
 
-        {/* Blue bottom accent line on hover */}
-        <motion.div
-          className="absolute bottom-0 inset-x-0 h-px"
-          style={{ background: "rgba(59,130,246,0)" }}
-          whileHover={{ background: "rgba(59,130,246,0.35)" }}
-          transition={{ duration: 0.25 }}
-        />
       </div>
     </motion.div>
   );

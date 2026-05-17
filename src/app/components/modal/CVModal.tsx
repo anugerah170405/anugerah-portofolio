@@ -4,6 +4,7 @@ import { X, Download, MapPin, Mail, Globe, Briefcase, BookOpen, Award } from "lu
 import { IconButton } from "../ui/IconButton";
 import { CV_DATA } from "../../../data/CVData";
 import { useModalDialog } from "@/hooks/UseModalDialog";
+import { BackDrop } from "../ui/BackDrop";
 
 
 interface CVModalProps {
@@ -27,19 +28,7 @@ export function CVModal({ open, onClose }: CVModalProps) {
       {open && (
         <>
           {/* ── Backdrop*/}
-          <motion.div
-            key="cv-backdrop"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.28 }}
-            className="fixed inset-0 z-50"
-            style={{
-              backdropFilter: "blur(10px) saturate(160%)",
-              background: "color-mix(in srgb, var(--background) 82%, transparent)",
-            }}
-            onClick={onClose}
-          />
+          <BackDrop key="backdrop-cv" onClose={onClose} />
 
           {/* ── Panel — */}
           <motion.div
@@ -86,23 +75,16 @@ export function CVModal({ open, onClose }: CVModalProps) {
                   Curriculum Vitae ⎯ {CV_DATA.name}
                 </h3>
 
-                <motion.button
+                <IconButton
+                  icon={Download}
                   onClick={handleDownloadCV}
-                  whileHover={{ scale: 1.08 }}
-                  whileTap={{ scale: 0.93 }}
-                  transition={{ duration: 0.15, ease: "easeOut" }}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[11px] border flex-shrink-0 transition-colors hover:text-blue-500 cursor-pointer"
-                >
-                  <Download className="w-3.5 h-3.5" />
-                  Download
-                </motion.button>
+                  label="Download"
+                />
 
                 {/* Close */}
                 <IconButton
                   icon={X}
                   onClick={onClose}
-                  stopPropagation
-                  label="Next"
                 />
               </div>
 
