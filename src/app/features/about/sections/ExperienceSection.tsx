@@ -1,7 +1,10 @@
+import { MotionItem, MotionStagger } from "@/app/components/motion/Motions";
 import { SectionHeading } from "@/app/components/ui/SectionHeader";
 import { CV_DATA } from "@/data/CVData";
 import { MapPin, Calendar, Briefcase, } from "lucide-react";
 
+const fg = (pct: number) =>
+    `color-mix(in oklch, var(--foreground) ${pct}%, transparent)`;
 
 export function ExperienceSection() {
     return (
@@ -14,11 +17,11 @@ export function ExperienceSection() {
                     title="Experience"
                 />
 
-                <div className="space-y-4 mt-10">
+                <MotionStagger className="space-y-4 mt-10">
                     {CV_DATA.experience.map((exp) => (
-                        <div
+                        <MotionItem
                             key={exp.role}
-                            className="rounded-xl p-5 sm:p-6 border border-foreground/8 hover:border-blue-500/15 transition-all group"
+                            className="rounded-xl p-5 sm:p-6 border border-foreground/8 hover:border-blue-500/15 hover:-translate-y-1 transition-all group"
                             style={{ background: "rgba(128,128,128,0.025)" }}
                         >
                             <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-3 mb-3">
@@ -32,35 +35,35 @@ export function ExperienceSection() {
                                             Current
                                         </span>
                                     )}
-                                    <h3 className="text-foreground/85 mb-0.5 text-sm sm:text-base">{exp.role}</h3>
-                                    <p className="text-sm text-foreground/55">{exp.company}</p>
+                                    <h3 className="mb-0.5 text-sm sm:text-base">{exp.role}</h3>
+                                    <p className="text-sm">{exp.company}</p>
                                 </div>
                                 <div className="flex flex-row sm:flex-col items-center sm:items-end gap-2 sm:gap-1.5 flex-shrink-0">
-                                    <span className="text-xs text-foreground/40 flex items-center gap-1.5 whitespace-nowrap">
+                                    <span className="text-xs flex items-center gap-1.5 whitespace-nowrap">
                                         <Calendar className="w-3 h-3 flex-shrink-0" /> {exp.period}
                                     </span>
-                                    <span className="text-xs text-foreground/35 flex items-center gap-1 whitespace-nowrap">
+                                    <span className="text-xs flex items-center gap-1 whitespace-nowrap">
                                         <MapPin className="w-3 h-3 flex-shrink-0" /> {exp.location}
                                     </span>
                                 </div>
                             </div>
 
-                            <p className="text-sm text-foreground/48 leading-relaxed mb-4">{exp.desc}</p>
+                            <p className="text-sm leading-relaxed mb-4" style={{color:fg(48)}}>{exp.desc}</p>
 
                             <div className="flex flex-wrap gap-1.5">
                                 {exp.tags.map((tag) => (
                                     <span
                                         key={tag}
-                                        className="px-2.5 py-1 text-[10px] uppercase tracking-wide text-foreground/42 border border-foreground/8 rounded"
+                                        className="px-2.5 py-1 text-[10px] uppercase tracking-wide border border-foreground/8 rounded"
                                         style={{ background: "rgba(128,128,128,0.04)" }}
                                     >
                                         {tag}
                                     </span>
                                 ))}
                             </div>
-                        </div>
+                        </MotionItem>
                     ))}
-                </div>
+                </MotionStagger>
             </div>
         </section>
     );

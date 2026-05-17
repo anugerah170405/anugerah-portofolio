@@ -1,13 +1,12 @@
 import { ArrowUpRight } from "lucide-react";
 import { useNavigate } from "react-router";
 import { PrimaryButton } from "./PrimaryButton";
+import { Motion } from "../motion/Motions";
 
 export function Contact() {
   const navigate = useNavigate();
   const textSecondary = { color: "rgba(var(--text-secondary-rgb), 0.75)" };
   const textTertiary = { color: "rgba(var(--text-tertiary-rgb), 0.55)" };
-
-
 
   return (
     <section
@@ -26,41 +25,45 @@ export function Contact() {
       <div className="relative z-10 max-w-4xl mx-auto text-center">
 
         {/* Label */}
-        <div
-          className="flex items-center justify-center gap-3 mb-10"
-        >
-          <div className="h-px w-6 bg-blue-500/40" />
-          <span className="text-xs uppercase tracking-widest" style={textTertiary}>Get in Touch</span>
-          <div className="h-px w-6 bg-blue-500/40" />
-        </div>
+        <Motion variant="fade" delay={0}>
+          <div className="flex items-center justify-center gap-3 mb-10">
+            <div className="h-px w-6 bg-blue-500/40" />
+            <span className="text-xs uppercase tracking-widest" style={textTertiary}>Get in Touch</span>
+            <div className="h-px w-6 bg-blue-500/40" />
+          </div>
+        </Motion>
 
         {/* Headline */}
-        <div className="overflow-hidden mb-2">
+        <Motion variant="fade-up" delay={0.1} className="overflow-hidden mb-2">
           <h2 className="text-[clamp(3rem,9vw,8rem)] leading-[0.92] tracking-tight">
             Let's Work
           </h2>
-        </div>
+        </Motion>
 
-        <div className="overflow-hidden mb-10 pb-3">
+        <Motion variant="fade-up" delay={0.18} className="overflow-hidden mb-10 pb-3">
           <h2
             className="text-[clamp(3rem,9vw,8rem)] leading-[0.92] tracking-tight"
             style={textSecondary}
           >
             Together.
           </h2>
-        </div>
+        </Motion>
 
         {/* Description */}
-        <p
-          className="text-base md:text-lg leading-relaxed max-w-md mx-auto mb-10"
-        >
-          Have a project in mind? I'd love to hear about it. Whether it's a product,
-          a design system, or something from scratch — let's make it remarkable.
-        </p>
+        <Motion variant="fade-up" delay={0.26} className="mb-10">
+          <p className="text-base md:text-lg leading-relaxed max-w-md mx-auto">
+            Have a project in mind? I'd love to hear about it. Whether it's a product,
+            a design system, or something from scratch — let's make it remarkable.
+          </p>
+        </Motion>
 
-        <PrimaryButton
-          onClick={() => navigate("/contact")}
-          variant="primary" label="Get in Touch" icon={ArrowUpRight} size="md" className="lg:w-[200px]" />
+        {/* CTA */}
+        <Motion variant="fade-up" delay={0.32}>
+          <PrimaryButton
+            onClick={() => navigate("/contact")}
+            variant="primary" label="Get in Touch" icon={ArrowUpRight} size="md" className="lg:w-[200px]"
+          />
+        </Motion>
 
       </div>
     </section>

@@ -227,10 +227,9 @@ export function CVModal({ open, onClose }: CVModalProps) {
                                 </p>
                               </div>
                               <span
-                                className="text-[9px] px-1.5 py-0.5 rounded border border-blue-500/20 flex-shrink-0"
+                                className="text-[9px] px-1.5 py-0.5 rounded border border-blue-500/20 text-blue-500 flex-shrink-0"
                                 style={{
                                   background: "rgba(59,130,246,0.06)",
-                                  color: "rgba(96,165,250,0.65)",
                                 }}
                               >
                                 {edu.highlight}

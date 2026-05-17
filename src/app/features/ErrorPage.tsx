@@ -1,6 +1,6 @@
 import { isRouteErrorResponse, useRouteError } from "react-router";
-import { motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { Motion } from "../components/motion/Motions";
 
 const fg = (pct: number) =>
     `color-mix(in oklch, var(--foreground) ${pct}%, transparent)`;
@@ -35,10 +35,7 @@ export function ErrorPage() {
                 />
 
                 {/* Single animation wrapper */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.96 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                <Motion
                     className="relative z-10 text-center max-w-2xl"
                 >
                     {/* Background word */}
@@ -123,7 +120,7 @@ export function ErrorPage() {
                             )}
                         </>
                     )}
-                </motion.div>
+                </Motion>
             </div>
         );
     }

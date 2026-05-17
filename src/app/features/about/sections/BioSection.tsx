@@ -1,8 +1,8 @@
-import { motion } from "motion/react";
 import { LANDSCAPE } from "@/data/PortraitData";
 import { CV_DATA } from "@/data/CVData";
 import { SectionHeading } from "@/app/components/ui/SectionHeader";
 import { ImageWithFallback } from "@/utils/ImageWithFallback";
+import { Motion } from "@/app/components/motion/Motions";
 
 const tools = [
   {
@@ -30,11 +30,7 @@ export function BioSection() {
         <div className="grid lg:grid-cols-2 gap-20 items-start">
 
           {/* LEFT — BIO */}
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+          <div
           >
             <SectionHeading
               label="Bio & Skills"
@@ -59,17 +55,14 @@ export function BioSection() {
               I bridge the gap between design and engineering, bringing user
               empathy and technical discipline to every project.
             </p>
-          </motion.div>
+          </div>
 
           {/* RIGHT — SKILLS */}
           <div className="space-y-5">
 
             {/* UI/UX DESIGN */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45 }}
+            <Motion
+              variant="fade-up"
               className="border border-foreground/8 rounded-xl p-7"
               style={{ background: "rgba(128,128,128,0.03)" }}
             >
@@ -92,14 +85,11 @@ export function BioSection() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </Motion>
 
             {/* FRONTEND DEV */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: 0.05 }}
+            <Motion
+              variant="fade-up"
               className="border border-foreground/8 rounded-xl p-7"
               style={{ background: "rgba(128,128,128,0.03)" }}
             >
@@ -120,14 +110,11 @@ export function BioSection() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </Motion>
 
             {/* TOOLBOX */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: 0.1 }}
+            <Motion
+              variant="fade-up"
             >
               <h4 className="text-xs uppercase tracking-widest mb-4">
                 Toolbox
@@ -149,7 +136,7 @@ export function BioSection() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </Motion>
           </div>
         </div>
       </div>
