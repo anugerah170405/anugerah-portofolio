@@ -142,7 +142,7 @@ export function WorkPage() {
                   }}
                   className={`px-4 py-2 rounded-lg text-sm border transition-all duration-200 cursor-pointer font-normal ${active
                     ? "text-blue-500 border-blue-500/25 bg-blue-500/10"
-                    : "text-foreground/40 border-foreground/8 bg-foreground/2 hover:text-foreground/65 hover:border-foreground/14 hover:bg-foreground/5"
+                    : "border-foreground/8 bg-foreground/2 hover:text-blue-500 hover:border-foreground/14 hover:bg-foreground/5"
                     }`}
                 >
                   {cat}
