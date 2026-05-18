@@ -11,8 +11,8 @@ export const SOCIALS = [
   {
     icon: Link,
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/anugerah-gari-736986329",
-    handle: "in/anugerah-gari-736986329",
+    href: "https://www.linkedin.com/in/anugerah-gari/",
+    handle: "anugerah-gari",
   },
   {
     icon: GitBranch,
