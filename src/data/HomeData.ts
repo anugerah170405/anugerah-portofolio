@@ -4,27 +4,18 @@ export const SERVICES = [
     title: "UI/UX Design",
     desc: "Research-backed interfaces that solve real user problems. From discovery to pixel-perfect prototypes in Figma.",
     tags: ["User Research", "Wireframing", "Prototyping", "Usability Testing"],
-    bg: "rgba(59,130,246,0.06)",
-    border: "rgba(59,130,246,0.14)",
-    dot: "#60a5fa",
   },
   {
     number: "02",
     title: "Frontend Development",
     desc: "Production-ready React applications with clean architecture, typed code, and smooth micro-interactions.",
     tags: ["React", "TypeScript", "Tailwind CSS", "Motion"],
-    bg: "rgba(99,102,241,0.06)",
-    border: "rgba(99,102,241,0.14)",
-    dot: "#818cf8",
   },
   {
     number: "03",
     title: "Design Systems",
     desc: "Scalable component libraries that bridge design and engineering, reducing handoff friction and ensuring consistency.",
     tags: ["Figma Libraries", "Tokens", "Documentation"],
-    bg: "rgba(37,99,235,0.06)",
-    border: "rgba(37,99,235,0.14)",
-    dot: "#3b82f6",
   },
 ];
 

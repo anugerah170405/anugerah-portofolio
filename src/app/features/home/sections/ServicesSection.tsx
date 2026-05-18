@@ -8,7 +8,7 @@ export function ServicesSection() {
     <section className="px-4 sm:px-6 py-20 sm:py-24 border-t border-foreground/5">
       <div className="max-w-7xl mx-auto">
         <div
-          
+
           className="mb-10 sm:mb-14"
         >
           <SectionHeading
@@ -18,14 +18,17 @@ export function ServicesSection() {
         </div>
 
         <MotionStagger className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {SERVICES.map((service) => (
+          {SERVICES.map((service, i) => (
             <MotionItem
               key={service.number}
               className="rounded-xl p-5 sm:p-7 border transition-all duration-300 group"
-              style={{ background: service.bg, borderColor: service.border }}
+              style={{
+                background: i % 2 == 0 ? "rgba(59,130,246,0.06)" : "rgba(99,102,241,0.06)",
+                borderColor: i % 2 == 0 ? "rgba(99,102,241,0.14)" : "rgba(59,130,246,0.14)"
+              }}
             >
               <div className="mb-5 sm:mb-6 flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full" style={{ background: service.dot }} />
+                <div className="w-1.5 h-1.5 rounded-full" style={{ background: i % 2 == 0 ? "#60a5fa" : "#818cf8"}} />
                 <span className="text-xs uppercase tracking-widest">{service.number}</span>
               </div>
               <h3 className="text-lg sm:text-xl mb-3">{service.title}</h3>
