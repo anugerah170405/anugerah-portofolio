@@ -14,6 +14,7 @@ import type { Project } from "../../../types/ProjectType";
 import { useModalDialog } from "@/hooks/UseModalDialog";
 import { LINK_ICONS } from "@/types/LinkIconType";
 import { BackDrop } from "../ui/BackDrop";
+import { useEffect, useRef } from "react";
 
 
 interface Props {
@@ -29,9 +30,18 @@ export function CaseStudyModal({
   open, onClose, project,
   onPrev, onNext, hasPrev, hasNext,
   currentIndex, total,
+
 }: Props) {
 
   useModalDialog({ open, onClose, onPrev, onNext, hasPrev, hasNext });
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (open && scrollRef.current) {
+      scrollRef.current.scrollTo({top:0, behavior: "instant"});
+    }
+  }, [open, project.title]);
 
   return createPortal(
     <AnimatePresence>
@@ -117,6 +127,7 @@ export function CaseStudyModal({
 
               {/* ── Scrollable content ── */}
               <div
+                ref={scrollRef}
                 className="overflow-y-auto rounded-b-xl border-b border-l border-r"
                 style={{
                   borderColor: "var(--sheet-border)",
@@ -144,12 +155,12 @@ export function CaseStudyModal({
                 {/* Title + Description + Links */}
                 <div
                   key={`body-${project.title}`}
-                  className="px-5 mb-5 flex gap-5 items-start"
+                  className="px-5 mb-5 flex gap-5 items-start flex-col md:flex-row"
                 >
                   {/* Left */}
-                  <div className="flex-1 min-w-0">
+                  <div className="flex flex-col flex-1 min-w-0">
                     <h2 className="text-2xl md:text-3xl mb-2">{project.title}</h2>
-                    <h3 className="text-sm mb-2 font-normal" style={{color:fg(48)}}>{project.year}</h3>
+                    <h3 className="text-sm mb-2 font-normal" style={{ color: fg(48) }}>{project.year}</h3>
                     <p
                       className="leading-relaxed mb-4 text-sm"
                       style={{ color: "color-mix(in srgb, var(--foreground) 52%, transparent)" }}
@@ -180,7 +191,7 @@ export function CaseStudyModal({
 
                   {/* Right: links */}
                   {project.links && project.links.length > 0 && (
-                    <div className="flex-shrink-0 flex flex-col gap-2 pt-1">
+                    <div className="flex-shrink-0 flex flex-row flex-wrap md:flex-col gap-2 pt-1">
                       {project.links.map((link) => {
                         const Icon = LINK_ICONS[link.icon] ?? Link2;
                         return (
