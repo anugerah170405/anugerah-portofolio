@@ -1,5 +1,6 @@
 import { SERVICES } from "@/data/HomeData";
 import { SectionHeading } from "../../../components/ui/SectionHeader";
+import { MotionItem, MotionStagger } from "@/app/components/motion/Motions";
 
 
 export function ServicesSection() {
@@ -16,9 +17,9 @@ export function ServicesSection() {
           />
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <MotionStagger className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           {SERVICES.map((service) => (
-            <div
+            <MotionItem
               key={service.number}
               className="rounded-xl p-5 sm:p-7 border transition-all duration-300 group"
               style={{ background: service.bg, borderColor: service.border }}
@@ -40,9 +41,9 @@ export function ServicesSection() {
                   </span>
                 ))}
               </div>
-            </div>
+            </MotionItem>
           ))}
-        </div>
+        </MotionStagger>
       </div>
     </section>
   );

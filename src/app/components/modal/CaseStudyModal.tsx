@@ -22,6 +22,8 @@ interface Props {
   hasPrev: boolean; hasNext: boolean;
   currentIndex: number; total: number;
 }
+const fg = (pct: number) =>
+  `color-mix(in oklch, var(--foreground) ${pct}%, transparent)`;
 
 export function CaseStudyModal({
   open, onClose, project,
@@ -147,6 +149,7 @@ export function CaseStudyModal({
                   {/* Left */}
                   <div className="flex-1 min-w-0">
                     <h2 className="text-2xl md:text-3xl mb-2">{project.title}</h2>
+                    <h3 className="text-sm mb-2 font-normal" style={{color:fg(48)}}>{project.year}</h3>
                     <p
                       className="leading-relaxed mb-4 text-sm"
                       style={{ color: "color-mix(in srgb, var(--foreground) 52%, transparent)" }}

@@ -14,6 +14,7 @@ export interface ProjectAuthor {
 
 export interface Project {
   title: string;
+  year: number;
   category: string;
   description: string;
   tags: string[];

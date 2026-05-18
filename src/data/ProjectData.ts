@@ -7,6 +7,7 @@ export const PROJECTS: Project[] = [
 
   {
     title: "LeafUp",
+    year: 2026,
     category: "UI/UX Design",
 
     description:
@@ -187,6 +188,7 @@ Improved decision-making efficiency by helping farmers choose crops based on ana
 
   {
     title: "Research Paper Assistant",
+    year: 2026,
     category: "Web Design",
 
     description:
@@ -344,6 +346,7 @@ Groq integration enabled faster response generation and smoother real-time chatb
 
   {
     title: "Kospedia",
+    year: 2025,
     category: "UI/UX Design",
 
     description:
@@ -559,6 +562,7 @@ Integrated communication features improved interactions between students and pro
 
   {
     title: "Todo AI",
+    year: 2026,
     category: "App Design",
 
     description:
@@ -723,6 +727,7 @@ The clean and intuitive interface reduced complexity and improved accessibility 
   {
     title: "MiRide",
 
+    year: 2026,
     category: "UI/UX Design",
 
     description:
@@ -951,6 +956,7 @@ Improved readability and navigation clarity for users across different age group
   {
     title: "Research Management System (RMS)",
 
+    year: 2026,
     category: "System Analysis & Design",
 
     description:
@@ -1209,6 +1215,7 @@ Through this project, several important insights about academic system design an
 
   {
     title: "Chess Bug",
+    year: 2025,
     category: "Software Development",
 
     description:
@@ -1370,6 +1377,7 @@ A clean and modular code structure makes the project easier to maintain and expa
   {
     title: "Personal Branding",
 
+    year: 2025,
     category: "Branding",
 
     description:
@@ -1544,7 +1552,7 @@ The logo symbolizes the balance between personal ambition, contribution to socie
 
     authors: [
       {
-        ...AUTHOR.anugerah, role:"Brand Designer"
+        ...AUTHOR.anugerah, role: "Brand Designer"
       },
     ],
   }

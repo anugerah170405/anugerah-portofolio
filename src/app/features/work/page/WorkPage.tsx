@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, X as XIcon } from "lucide-react";
+import { ChevronDown, Search, X as XIcon } from "lucide-react";
 import { ProjectCard } from "../../../components/ui/ProjectCard";
 import { CaseStudyModal } from "../../../components/modal/CaseStudyModal";
 import { PROJECTS } from "@/data/ProjectData";
@@ -13,6 +13,7 @@ const ALL_CATEGORIES = [
 
 export function WorkPage() {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [activeYear, setActiveYear] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
@@ -21,14 +22,16 @@ export function WorkPage() {
     ({ project }) => {
       const matchesCategory =
         activeFilter === "All" ? true : project.category === activeFilter;
+      const mathcesYear = activeYear === null ? true: project.year === activeYear;
       const q = searchQuery.toLowerCase().trim();
       const matchesSearch =
         q === "" ||
         project.title.toLowerCase().includes(q) ||
         project.description.toLowerCase().includes(q) ||
         project.category.toLowerCase().includes(q) ||
-        project.tags.some((t) => t.toLowerCase().includes(q));
-      return matchesCategory && matchesSearch;
+        project.tags.some((t) => t.toLowerCase().includes(q)) ||
+        project.year.toString().includes(q);
+      return matchesCategory && matchesSearch && mathcesYear;
     }
   );
 
@@ -66,9 +69,9 @@ export function WorkPage() {
           </div>
 
           {/* Search bar */}
-          <div className="relative mb-6">
+          <div className="flex gap-2 mb-6">
             <div
-              className="flex items-center gap-3 px-4 py-3 rounded-xl border border-foreground/8 transition-all duration-200 focus-within:border-blue-500/25"
+              className="flex items-center gap-3 px-4 py-3 rounded-xl border border-foreground/8 transition-all duration-200 focus-within:border-blue-500/25 flex-1"
               style={{ background: "rgba(128,128,128,0.03)" }}
             >
               <Search className="w-4 h-4 flex-shrink-0" />
@@ -88,11 +91,41 @@ export function WorkPage() {
                     setSearchQuery("");
                     setSelectedProject(null);
                   }}
-                  className="cursor-pointer w-5 h-5 rounded-md flex items-center justify-center text-foreground/30 hover:text-foreground/60 transition-colors flex-shrink-0"
+                  className="cursor-pointer w-5 h-5 rounded-md flex items-center justify-center transition-colors flex-shrink-0"
                 >
                   <XIcon className="w-3.5 h-3.5" />
                 </button>
               )}
+            </div>
+            <div className="relative">
+              <select
+                value={activeYear ?? ""}
+                onChange={(e) => {
+                  setActiveYear(
+                    e.target.value === ""
+                      ? null
+                      : Number(e.target.value)
+                  );
+                  setSelectedProject(null);
+                }}
+                className="appearance-none h-full cursor-pointer pr-8 px-4 py-2 rounded-xl border border-foreground/8 bg-transparent text-sm outline-none transition-all duration-200 focus:border-blue-500/25"
+              >
+                <option value="">All Years</option>
+
+                {[...new Set(PROJECTS.map((p) => p.year))]
+                  .sort((a, b) => b - a)
+                  .map((year) => (
+                    <option key={year} value={year}>
+                      {year}
+                    </option>
+                  ))}
+
+              </select>
+
+              <ChevronDown
+                className="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none"
+              />
+
             </div>
           </div>
 
@@ -107,11 +140,10 @@ export function WorkPage() {
                     setActiveFilter(cat);
                     setSelectedProject(null);
                   }}
-                  className={`px-4 py-2 rounded-lg text-sm border transition-all duration-200 cursor-pointer font-normal ${
-                    active
-                      ? "text-blue-500 border-blue-500/25 bg-blue-500/10"
-                      : "text-foreground/40 border-foreground/8 bg-foreground/2 hover:text-foreground/65 hover:border-foreground/14 hover:bg-foreground/5"
-                  }`}
+                  className={`px-4 py-2 rounded-lg text-sm border transition-all duration-200 cursor-pointer font-normal ${active
+                    ? "text-blue-500 border-blue-500/25 bg-blue-500/10"
+                    : "text-foreground/40 border-foreground/8 bg-foreground/2 hover:text-foreground/65 hover:border-foreground/14 hover:bg-foreground/5"
+                    }`}
                 >
                   {cat}
                 </button>
