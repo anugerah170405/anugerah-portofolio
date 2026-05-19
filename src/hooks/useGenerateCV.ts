@@ -98,7 +98,11 @@ export function useGenerateCV() {
       align: "right",
     });
 
-    doc.text(CV_DATA.website, rightX, y + 4, {
+    doc.text(CV_DATA.linkedin, rightX, y + 4, {
+      align: "right",
+    });
+
+    doc.text(CV_DATA.website, rightX, y + 8, {
       align: "right",
     });
 

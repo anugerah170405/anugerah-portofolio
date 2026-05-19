@@ -44,7 +44,7 @@ export const TESTIMONIALS = [
     name: "Stiven",
     role: "Backend Developer",
     company: "Research Paper Assistant",
-    avatar: "https://lh3.googleusercontent.com/a-/ALV-UjWgEDn_kfp3RZJdYAbp_sGbFdSLA0GLTdJmcaJz8VvF6Q7rxWg=s100-c",
+    avatar: "https://ui-avatars.com/api/?name=Stiven+Londok&background=random",
     rating: 5,
   },
   {
@@ -53,7 +53,7 @@ export const TESTIMONIALS = [
     name: "Justin",
     role: "UX Researcher",
     company: "LeafUp Project",
-    avatar: "https://lh3.googleusercontent.com/a-/ALV-UjVZc4-yC1PZqtCpmvZQFmmsuRhCNcZhS7H0ds9kT95_GjpB7do=s100-c",
+    avatar: "https://ui-avatars.com/api/?name=Justin+Mait&background=random",
     rating: 5,
   },
 ];

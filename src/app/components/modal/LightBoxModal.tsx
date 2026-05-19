@@ -1,11 +1,12 @@
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useModalDialog } from "@/hooks/UseModalDialog";
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence } from "motion/react";
 import { createPortal } from "react-dom";
 import { galleryItems } from "@/data/GalleryData";
 import { IconButton } from "../ui/IconButton";
 import { ImageWithFallback } from "@/utils/ImageWithFallback";
 import { BackDrop } from "../ui/BackDrop";
+import { MotionModal } from "../motion/Motions";
 
 interface LightBoxModalProps {
   index: number | null;
@@ -36,12 +37,8 @@ export function LightBoxModal({ index, onClose, onPrev, onNext }: LightBoxModalP
           <BackDrop key="backdrop-lightbox" onClose={onClose} />
 
           {/* Panel */}
-          <motion.div
+          <MotionModal
             key={`lb-panel-${index}`}
-            initial={{ opacity: 0, scale: 0.93, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.93, y: 20 }}
-            transition={{ type: "spring", damping: 30, stiffness: 340 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 pointer-events-none"
           >
             <div className="relative w-full max-w-4xl pointer-events-auto">
@@ -110,27 +107,21 @@ export function LightBoxModal({ index, onClose, onPrev, onNext }: LightBoxModalP
               </div>
 
               {/* ── Image area ── */}
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={`lb-img-${index}`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="overflow-hidden rounded-b-xl border-b border-l border-r"
-                  style={{ borderColor: "var(--sheet-border)" }}
-                >
-                  <ImageWithFallback
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full object-cover block"
-                    style={{ maxHeight: "68vh" }}
-                  />
-                </motion.div>
-              </AnimatePresence>
+              <div
+                key={`lb-img-${index}`}
+                className="overflow-hidden rounded-b-xl border-b border-l border-r"
+                style={{ borderColor: "var(--sheet-border)" }}
+              >
+                <ImageWithFallback
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full object-cover block"
+                  style={{ maxHeight: "68vh" }}
+                />
+              </div>
 
             </div>
-          </motion.div>
+          </MotionModal>
         </>
       )}
     </AnimatePresence>,

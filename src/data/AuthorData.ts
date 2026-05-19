@@ -7,12 +7,12 @@ export const AUTHOR = {
 
     sthaford: {
         name: "Sthaford",
-        avatar: "https://lh3.googleusercontent.com/a-/ALV-UjVfkT2PgABS4jQJdHJ8ZJYCoaQ7z8siMyFQgLc03uAxS33u_vI=s100-c",
+        avatar: "https://ui-avatars.com/api/?name=Sthaford+Mamait&background=random",
         socialUrl: "https://www.instagram.com/sthfrd__"
     },
     stiven: {
         name: "Stiven",
-        avatar: "https://lh3.googleusercontent.com/a-/ALV-UjWgEDn_kfp3RZJdYAbp_sGbFdSLA0GLTdJmcaJz8VvF6Q7rxWg=s100-c",
+        avatar: "https://ui-avatars.com/api/?name=Stiven+Londok&background=random",
         socialUrl: "https://www.instagram.com/stieven.londok/"
     },
     jildeany: {
@@ -23,7 +23,7 @@ export const AUTHOR = {
 
     justin: {
         name: "Justin",
-        avatar: "https://lh3.googleusercontent.com/a-/ALV-UjVZc4-yC1PZqtCpmvZQFmmsuRhCNcZhS7H0ds9kT95_GjpB7do=s100-c",
+        avatar: "https://ui-avatars.com/api/?name=Justin+Mait&background=random",
         socialUrl: "https://www.instagram.com/vgryo_/"
     },
     siaoling: {
@@ -38,12 +38,12 @@ export const AUTHOR = {
     },
     rayden: {
         name: "Rayden",
-        avatar: "https://lh3.googleusercontent.com/a-/ALV-UjVxPW0IqARcQ4avsEG6ZSp9CXkWejbKZZtDWL2pf268eSfT9h0=s100-c",
+        avatar: "https://ui-avatars.com/api/?name=Rayden&background=random",
         socialUrl: "https://www.instagram.com/zhj_moa/"
     },
     zacklee: {
         name: "Zacklee",
-        avatar: "https://raw.githubusercontent.com/anugerah170405/assets/main/images/1778727639880_305517996_503472064947848_7412643099703289170_n.jpg",
+        avatar: "https://ui-avatars.com/api/?name=Zacklee&background=random",
         socialUrl: "https://www.instagram.com/zhj_moa/"
     },
     natalia: {

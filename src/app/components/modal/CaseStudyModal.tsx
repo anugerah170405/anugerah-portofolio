@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "motion/react";
+import { AnimatePresence } from "motion/react";
 import { createPortal } from "react-dom";
 import remarkGfm from "remark-gfm";
 import {
@@ -15,6 +15,7 @@ import { useModalDialog } from "@/hooks/UseModalDialog";
 import { LINK_ICONS } from "@/types/LinkIconType";
 import { BackDrop } from "../ui/BackDrop";
 import { useEffect, useRef } from "react";
+import { MotionModal } from "../motion/Motions";
 
 
 interface Props {
@@ -51,12 +52,8 @@ export function CaseStudyModal({
           <BackDrop key="backdrop-casestudy" onClose={onClose} />
 
           {/* ── Panel ── */}
-          <motion.div
+          <MotionModal
             key={`cs-panel`}
-            initial={{ opacity: 0, scale: 0.93, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.93, y: 20 }}
-            transition={{ type: "spring", damping: 30, stiffness: 340 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 pointer-events-none"
           >
             <div
@@ -356,7 +353,7 @@ export function CaseStudyModal({
 
               </div>
             </div>
-          </motion.div>
+          </MotionModal>
         </>
       )}
     </AnimatePresence>,

@@ -3,13 +3,14 @@ export const CV_DATA = {
   role: "UI/UX Designer & Frontend Developer",
   location: "Airmadidi, North Sulawesi",
   email: "anugerahgari170405@gmail.com",
-  website: "linkedin.com/in/anugerah-gari",
+  linkedin: "linkedin.com/in/anugerah-gari",
+  website: "https://anugerah-portofolio.vercel.app/",
   profile:
     "Frontend Developer and UI/UX Designer with experience building modern, responsive, and user-centered digital products through personal and academic projects. Skilled in developing interactive web and mobile applications while creating clean and engaging user experiences. Passionate about combining design thinking with scalable frontend development to deliver functional and visually polished applications.",
   experience: [
 
     {
-      period: "2026 - Present",
+      period: "2026",
       role: "Frontend Developer",
       company: "Paper (RAG) — AI Research Assistant",
       location: "Indonesia",

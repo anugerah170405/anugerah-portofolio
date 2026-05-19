@@ -1,10 +1,11 @@
 import { createPortal } from "react-dom";
-import { motion, AnimatePresence } from "motion/react";
-import { X, Download, MapPin, Mail, Globe, Briefcase, BookOpen, Award } from "lucide-react";
+import { AnimatePresence } from "motion/react";
+import { X, Download, MapPin, Mail, Globe, Briefcase, BookOpen, Award, Link } from "lucide-react";
 import { IconButton } from "../ui/IconButton";
 import { CV_DATA } from "../../../data/CVData";
 import { useModalDialog } from "@/hooks/UseModalDialog";
 import { BackDrop } from "../ui/BackDrop";
+import { MotionModal } from "../motion/Motions";
 
 
 interface CVModalProps {
@@ -31,12 +32,8 @@ export function CVModal({ open, onClose }: CVModalProps) {
           <BackDrop key="backdrop-cv" onClose={onClose} />
 
           {/* ── Panel — */}
-          <motion.div
+          <MotionModal
             key="cv-panel"
-            initial={{ opacity: 0, scale: 0.93, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.93, y: 20 }}
-            transition={{ type: "spring", damping: 30, stiffness: 340 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 pointer-events-none"
           >
             <div
@@ -88,7 +85,6 @@ export function CVModal({ open, onClose }: CVModalProps) {
                 />
               </div>
 
-              {/* ── Content area — identik Gallery: rounded-b-xl border-b border-l border-r ── */}
               <div
                 className="overflow-y-auto rounded-b-xl border-b border-l border-r"
                 style={{
@@ -119,12 +115,30 @@ export function CVModal({ open, onClose }: CVModalProps) {
                       >
                         <Mail className="w-3 h-3 flex-shrink-0" /> {CV_DATA.email}
                       </span>
-                      <span
-                        className="flex items-center gap-1.5 sm:justify-end text-xs"
-                        style={{ color: "color-mix(in srgb, var(--foreground) 38%, transparent)" }}
+                      <a
+                        href={`https://${CV_DATA.linkedin}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 sm:justify-end text-xs no-underline hover:text-blue-500 hover:underline"
+                        style={{
+                          color: "color-mix(in srgb, var(--foreground) 38%, transparent)",
+                        }}
                       >
-                        <Globe className="w-3 h-3 flex-shrink-0" /> {CV_DATA.website}
-                      </span>
+                        <Link className="w-3 h-3 flex-shrink-0" />
+                        {CV_DATA.linkedin}
+                      </a>
+                      <a
+                        href={`https://${CV_DATA.website}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 sm:justify-end text-xs no-underline hover:text-blue-500 hover:underline"
+                        style={{
+                          color: "color-mix(in srgb, var(--foreground) 38%, transparent)",
+                        }}
+                      >
+                        <Globe className="w-3 h-3 flex-shrink-0" />
+                        {CV_DATA.website}
+                      </a>
                     </div>
                   </div>
 
@@ -298,7 +312,7 @@ export function CVModal({ open, onClose }: CVModalProps) {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </MotionModal>
         </>
       )}
     </AnimatePresence>,

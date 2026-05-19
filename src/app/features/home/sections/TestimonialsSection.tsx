@@ -21,7 +21,7 @@ export function TestimonialsSection() {
           {TESTIMONIALS.map((t) => (
             <MotionItem key={t.name} variant="fade-up">
               <div
-                className="rounded-xl p-5 sm:p-7 border border-foreground/8 hover:border-blue-500/20 transition-all duration-300 group flex flex-col gap-5 h-full"
+                className="rounded-xl p-5 sm:p-7 border border-foreground/8 hover:-translate-y-1 transition-all duration-300 group flex flex-col gap-5 h-full"
                 style={{ background: "rgba(59,130,246,0.02)" }}
               >
                 <div className="flex items-start justify-between">
