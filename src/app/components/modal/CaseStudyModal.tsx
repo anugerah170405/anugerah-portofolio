@@ -27,7 +27,7 @@ interface Props {
 const fg = (pct: number) =>
   `color-mix(in oklch, var(--foreground) ${pct}%, transparent)`;
 
-export function CaseStudyModal({
+export default function CaseStudyModal({
   open, onClose, project,
   onPrev, onNext, hasPrev, hasNext,
   currentIndex, total,

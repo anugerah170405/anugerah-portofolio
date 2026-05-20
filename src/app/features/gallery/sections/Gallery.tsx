@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, lazy } from "react";
 import { ImageWithFallback } from "../../../../utils/ImageWithFallback";
 import { galleryItems } from "@/data/GalleryData";
-import { LightBoxModal } from "@/app/components/modal/LightBoxModal";
-
+const LightBoxModal = lazy(
+  () => import("@/app/components/modal/LightBoxModal")
+);
 
 
 export function Gallery() {

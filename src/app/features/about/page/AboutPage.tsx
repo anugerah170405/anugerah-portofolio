@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState, lazy } from "react";
 import { FileText, ArrowUpRight } from "lucide-react";
 import { Contact } from "../../../components/ui/Contact";
 import { ImageWithFallback } from "../../../../utils/ImageWithFallback";
-import { CVModal } from "../../../components/modal/CVModal";
 import { SectionHeading } from "../../../components/ui/SectionHeader";
 import { CV_DATA } from "@/data/CVData";
 import { PORTRAIT } from "../../../../data/PortraitData";
@@ -11,6 +10,9 @@ import { EducationSection } from "../sections/EducationSection";
 import { AwardsSection } from "../sections/AwardSection";
 import { ExperienceSection } from "../sections/ExperienceSection";
 import { BioSection } from "../sections/BioSection";
+const CVModal = lazy(
+  () => import("../../../components/modal/CVModal")
+);
 
 
 export function AboutPage() {

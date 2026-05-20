@@ -1,11 +1,13 @@
 import { ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useState, lazy } from "react";
 import { useNavigate } from "react-router";
 import { ProjectCard } from "../../../components/ui/ProjectCard";
-import { CaseStudyModal } from "../../../components/modal/CaseStudyModal";
 import { PROJECTS } from "@/data/ProjectData";
 import { SectionHeading } from "../../../components/ui/SectionHeader";
 import type { Project } from "@/types/ProjectType";
+const CaseStudyModal = lazy(
+  () => import("../../../components/modal/CaseStudyModal")
+);
 
 
 // Show only the first 3 as featured on Home

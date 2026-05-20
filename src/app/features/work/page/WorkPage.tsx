@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, lazy } from "react";
 import { ChevronDown, Search, X as XIcon } from "lucide-react";
 import { ProjectCard } from "../../../components/ui/ProjectCard";
-import { CaseStudyModal } from "../../../components/modal/CaseStudyModal";
 import { PROJECTS } from "@/data/ProjectData";
 import { Contact } from "../../../components/ui/Contact";
 import { SectionHeading } from "../../../components/ui/SectionHeader";
+const CaseStudyModal = lazy(
+  () => import("../../../components/modal/CaseStudyModal")
+);
 
 const ALL_CATEGORIES = [
   "All",

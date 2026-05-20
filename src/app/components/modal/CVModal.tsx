@@ -13,7 +13,7 @@ interface CVModalProps {
   onClose: () => void;
 }
 
-export function CVModal({ open, onClose }: CVModalProps) {
+export default function CVModal({ open, onClose }: CVModalProps) {
 
   const handleDownloadCV = async () => {
     const { useGenerateCV } = await import("@/hooks/useGenerateCV");

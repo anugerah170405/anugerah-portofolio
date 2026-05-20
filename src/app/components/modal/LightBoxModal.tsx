@@ -15,7 +15,7 @@ interface LightBoxModalProps {
   onNext: () => void;
 }
 
-export function LightBoxModal({ index, onClose, onPrev, onNext }: LightBoxModalProps) {
+export default function LightBoxModal({ index, onClose, onPrev, onNext }: LightBoxModalProps) {
   const item = index !== null ? galleryItems[index] : null;
   const hasPrev = index !== null && index > 0;
   const hasNext = index !== null && index < galleryItems.length - 1;
