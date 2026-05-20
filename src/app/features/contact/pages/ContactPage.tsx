@@ -3,6 +3,7 @@ import { Send } from "lucide-react";
 import { SectionHeading } from "../../../components/ui/SectionHeader";
 import emailjs from "@emailjs/browser";
 import { AVAILABILITY, SOCIALS } from "@/data/ContactData";
+import { TextAreaField, TextField } from "@/app/components/ui/TextField";
 
 
 export function ContactPage() {
@@ -13,14 +14,28 @@ export function ContactPage() {
     message: "",
   });
   const [sent, setSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await emailjs.send("service_pk6hwih", "template_q07pnqu", formData, "l9TWCCLZXQLSo3ulz");
-    setSent(true);
-  };
 
-  const inputClass =
-    "w-full px-4 py-3 rounded-lg border border-foreground/10 bg-transparent text-foreground/80 text-sm placeholder:text-foreground/25 focus:outline-none focus:border-foreground/25 transition-colors";
+    try {
+      setIsSubmitting(true);
+
+      await emailjs.send(
+        "service_pk6hwih",
+        "template_q07pnqu",
+        formData,
+        "l9TWCCLZXQLSo3ulz"
+      );
+
+      setSent(true);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -62,75 +77,61 @@ export function ContactPage() {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-[10px] uppercase tracking-widest text-foreground/30 mb-2">
-                          Name
-                        </label>
-                        <input
-                          required
-                          className={inputClass}
-                          placeholder="Your name"
-                          value={formData.name}
-                          onChange={(e) =>
-                            setFormData((p) => ({ ...p, name: e.target.value }))
-                          }
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-[10px] uppercase tracking-widest text-foreground/30 mb-2">
-                          Email
-                        </label>
-                        <input
-                          required
-                          type="email"
-                          className={inputClass}
-                          placeholder="your@email.com"
-                          value={formData.email}
-                          onChange={(e) =>
-                            setFormData((p) => ({ ...p, email: e.target.value }))
-                          }
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-[10px] uppercase tracking-widest text-foreground/30 mb-2">
-                        Subject
-                      </label>
-                      <input
-                        required
-                        className={inputClass}
-                        placeholder="Project inquiry, collaboration, etc."
-                        value={formData.subject}
-                        onChange={(e) =>
-                          setFormData((p) => ({ ...p, subject: e.target.value }))
+                      <TextField
+                        label="Name"
+                        placeholder="Your Name"
+                        value={formData.name}
+                        isSubmitting={isSubmitting}
+                        onChange={(value) =>
+                          setFormData((p) => ({ ...p, name: value }))
+                        }
+                      />
+                      <TextField
+                        type="email"
+                        label="Email"
+                        placeholder="your@email.com"
+                        value={formData.email}
+                        isSubmitting={isSubmitting}
+                        onChange={(value) =>
+                          setFormData((p) => ({ ...p, email: value }))
                         }
                       />
                     </div>
 
-                    <div>
-                      <label className="block text-[10px] uppercase tracking-widest text-foreground/30 mb-2">
-                        Message
-                      </label>
-                      <textarea
-                        required
-                        rows={6}
-                        className={`${inputClass} resize-none`}
-                        placeholder="Tell me about your project, timeline, and budget..."
-                        value={formData.message}
-                        onChange={(e) =>
-                          setFormData((p) => ({ ...p, message: e.target.value }))
-                        }
-                      />
-                    </div>
+                    <TextField
+                      label="Subject"
+                      placeholder="Project inquiry, collaboration, etc."
+                      value={formData.subject}
+                      isSubmitting={isSubmitting}
+                      onChange={(value) =>
+                        setFormData((p) => ({ ...p, subject: value }))
+                      }
+                    />
+
+                    <TextAreaField
+                      label="Message"
+                      placeholder="Tell me about your project, timeline, and budget..."
+                      value={formData.message}
+                      isSubmitting={isSubmitting}
+                      onChange={(value) =>
+                        setFormData((p) => ({ ...p, message: value }))
+                      }
+                    />
+
                     <button
                       type="submit"
-                      className="cursor-pointer inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm transition-colors border border-border hover:border-foreground/20 hover:text-blue-500 w-full"
+                      className="cursor-pointer inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm transition-colors border border-border hover:border-foreground/20 hover:text-blue-500 w-full disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:text-current"
                       style={{ background: "rgba(128,128,128,0.07)" }}
-
+                      disabled={isSubmitting}
                     >
-                      Send Message
-                      <Send className="w-3.5 h-3.5" />
+                      {isSubmitting && (
+                        <div
+                          aria-hidden="true"
+                          className="h-3.5 w-3.5 border-2 border-current rounded-full border-t-transparent animate-spin ">
+                        </div>
+                      )}
+                      {isSubmitting ? "Submitting..." : "Send Message"}
+                      {!isSubmitting && <Send className="w-3.5 h-3.5" />}
                     </button>
                   </form>
                 )}
@@ -184,6 +185,7 @@ export function ContactPage() {
                     <a
                       key={social.label}
                       href={social.href}
+                      target="_blank"
                       className="flex items-center gap-3 hover:text-blue-500 transition-colors"
                     >
                       <social.icon className="w-4 h-4 flex-shrink-0" />
