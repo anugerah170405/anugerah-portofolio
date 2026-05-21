@@ -212,7 +212,7 @@ export default function CaseStudyModal({
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {project.authors.map((author) => (
-                      <AuthorChip name={author.name} socialUrl={author.socialUrl} avatar={author.avatar} role={author.role} />
+                      <AuthorChip key={author.name} name={author.name} socialUrl={author.socialUrl} avatar={author.avatar} role={author.role} />
                     ))}
                   </div>
                 </div>

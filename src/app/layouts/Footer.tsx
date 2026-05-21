@@ -56,6 +56,7 @@ export function Footer() {
             {SOCIALS.map((link) => (
               <a
                 href={link.href}
+                target="_blank"
                 className="text-sm hover:text-blue-500 transition-colors text-left cursor-pointer"
               >
                 {link.label}
