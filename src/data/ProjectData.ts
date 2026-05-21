@@ -1548,7 +1548,13 @@ The identity system works effectively across:
 The logo symbolizes the balance between personal ambition, contribution to society, and spiritual values.
   `,
 
-    links: [],
+    links: [
+      {
+        icon: "figma",
+        label: "Figma",
+        url: "https://www.figma.com/design/XrXuEWKb5HGgyGg3JmtZCU/My-Brand?node-id=0-1&t=Z5lo0qPbS92vB1yn-1",
+      },
+    ],
 
     authors: [
       {
