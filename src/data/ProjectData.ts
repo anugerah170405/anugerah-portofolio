@@ -16,7 +16,7 @@ export const PROJECTS: Project[] = [
     tags: ["UI", "UX", "Proxocoris", "Competition"],
 
     thumbnail:
-      "https://raw.githubusercontent.com/anugerah170405/assets/main/images/1778649172603_project2.png",
+      "https://raw.githubusercontent.com/anugerah170405/assets/main/images/1779544318534_image_6.webp",
 
     challenge: `
 Many farmers still rely on assumptions and traditional habits when deciding what crops to plant. Limited access to reliable market insights and agricultural data often leads to ineffective decision-making and unstable harvest outcomes.
@@ -42,7 +42,7 @@ Based on interviews and observations conducted with farmers in rural areas, seve
 | Pain Points | Lack of real-time insights, unstable market pricing, and dependence on middlemen. |
 | User Needs | Accessible recommendations, market statistics, and understandable agricultural insights. |
 
-![EmpathyMapSection](https://raw.githubusercontent.com/anugerah170405/assets/main/images/1778649492005_EmpathyMapSection.png)
+![EmpathyMapSection](https://raw.githubusercontent.com/anugerah170405/assets/main/images/1779544718910_EmpathyMapSection.webp)
   `,
 
     solution: `
@@ -87,7 +87,7 @@ Integrate artificial intelligence to analyze agricultural data and assist farmer
 
     process: `
 ## Design Thinking
-![Screenshot 2026 05 14 at 13.35.52](https://raw.githubusercontent.com/anugerah170405/assets/main/images/1778737021866_Screenshot_2026-05-14_at_13.35.52.png)
+![1778737021866](https://raw.githubusercontent.com/anugerah170405/assets/main/images/1779544787711_1778737021866.webp)
   
 ## User Flow
 
